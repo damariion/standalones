@@ -1,7 +1,7 @@
 from scapy.all import IP, ICMP, sr1
 from sys import argv
 
-class Core:
+class this:
 
     map = \
     {
@@ -22,11 +22,11 @@ class Core:
     def main(addr) -> None:
 
         # response -> system
-        system = Core.map[Core.ttl(addr)]
+        system = this.map[this.ttl(addr)]
         print(f"{addr} is running {system}")
 
 if __name__ == "__main__":
     
-    # basic-handler
+    # input handler
     if len(argv) == 2:
-        Core.main(argv[1])
+        this.main(argv[1])
