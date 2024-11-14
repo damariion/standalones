@@ -10,7 +10,7 @@ class Core:
     }
 
     @staticmethod
-    def icmp(addr: str) -> int:
+    def ttl(addr: str) -> int:
         
         # protocol procedure
         send = IP(dst = addr) / ICMP()
@@ -22,7 +22,7 @@ class Core:
     def main(addr) -> None:
 
         # response -> system
-        system = Core.map[Core.icmp(addr)]
+        system = Core.map[Core.ttl(addr)]
         print(f"{addr} is running {system}")
 
 if __name__ == "__main__":
