@@ -1,7 +1,7 @@
 from scapy.all import IP, ICMP, sr1
 from sys import argv
 
-class this:
+class Program:
 
     map = \
     {
@@ -9,8 +9,7 @@ class this:
         128: "Windows",
     }
 
-    @staticmethod
-    def ttl(addr: str) -> int:
+    def ttl(self, addr: str) -> int:
         
         # protocol procedure
         send = IP(dst = addr) / ICMP()
@@ -18,15 +17,14 @@ class this:
 
         return recv[IP].ttl
 
-    @staticmethod
-    def main(addr) -> None:
+    def main(self, addr):
 
         # response -> system
-        system = this.map[this.ttl(addr)]
+        system = self.map[self.ttl(addr)]
         print(f"{addr} is running {system}")
 
 if __name__ == "__main__":
     
     # input handler
     if len(argv) == 2:
-        this.main(argv[1])
+        (_ := Program()).main(argv[1])

@@ -1,10 +1,9 @@
 from hashlib import md5
 from sys import argv
 
-class this:
+class Program:
 
-    @staticmethod
-    def compare(attempt: str, target: str) -> bool:
+    def compare(self, attempt: str, target: str) -> bool:
         
         # transform
         attempt = attempt.encode()
@@ -13,14 +12,13 @@ class this:
         # compare
         return attempt == target
 
-    @staticmethod
-    def main(target, words) -> None:
+    def main(self, target, words):
         
         with open(words, 'r') as file:
             
             for word in file.readlines():
                 
-                if not this.compare(word, target):
+                if not self.compare(word, target):
                     continue
 
                 # cracked
@@ -31,4 +29,4 @@ if __name__ == "__main__":
 
     # input handler
     if len(argv) == 3:
-        this.main(argv[1], argv[2])
+        (_ := Program()).main(argv[1], argv[2])
