@@ -37,33 +37,3 @@ class Wallet:
         
         self.btc -= btc
         self.eur += btc * Bitcoin.to_eur
-        
-class Program:
-
-    memory = []
-
-    def main(self):
-
-        # initialization
-        wallet = Wallet()
-        Bitcoin.update(512)
-
-        # invest
-        wallet.deposit(10)
-        wallet.buy(10)
-
-        while True: 
-            self.loop(wallet)
-
-    def loop(self, wallet):
-
-        percentage = Bitcoin.update()
-
-        ...
-
-if __name__ == "__main__":
-
-    (_ := Program()).main()
-    
-
-    
