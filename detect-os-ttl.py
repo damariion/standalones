@@ -9,7 +9,8 @@ class Program:
         128: "Windows",
     }
 
-    def ttl(self, addr: str) -> int:
+    @staticmethod
+    def ttl(addr: str) -> int:
         
         # protocol procedure
         send = IP(dst = addr) / ICMP()
@@ -17,14 +18,15 @@ class Program:
 
         return recv[IP].ttl
 
-    def main(self, addr):
+    @classmethod
+    def main(cls, addr):
 
         # response -> system
-        system = self.map[self.ttl(addr)]
+        system = cls.map[cls.ttl(addr)]
         print(f"{addr} is running {system}")
 
 if __name__ == "__main__":
     
     # input handler
     if len(argv) == 2:
-        (_ := Program()).main(argv[1])
+        Program.main(argv[1])
