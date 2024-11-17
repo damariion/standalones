@@ -1,13 +1,7 @@
 from scapy.all import IP, ICMP, sr1
 from sys import argv
 
-class Program:
-
-    map = \
-    {
-        64: "Unix",
-        128: "Windows",
-    }
+class ICMP:
 
     @staticmethod
     def ttl(addr: str) -> int:
@@ -18,11 +12,19 @@ class Program:
 
         return recv[IP].ttl
 
+class Program:
+
+    map = \
+    {
+        64: "Unix",
+        128: "Windows",
+    }
+
     @classmethod
     def main(cls, addr):
 
         # response -> system
-        system = cls.map[cls.ttl(addr)]
+        system = cls.map[ICMP.ttl(addr)]
         print(f"{addr} is running {system}")
 
 if __name__ == "__main__":

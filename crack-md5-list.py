@@ -1,26 +1,33 @@
 from hashlib import md5
 from sys import argv
 
-class Program:
+class Hash:
 
-    @staticmethod
-    def compare(attempt: str, target: str) -> bool:
+    def __init__(self, target):
+        self.target = target
+
+    def compare(self, attempt: str) -> bool:
         
         # transform
         attempt = attempt.encode()
         attempt = md5(attempt).hexdigest()
 
         # compare
-        return attempt == target
+        return attempt == self.target
 
-    @classmethod
-    def main(cls, target, words):
+class Program:
+
+    def main(target, words):
         
+        # set target hash
+        thash = Hash(target)
+
+        # bruteforce
         with open(words, 'r') as file:
             
             for word in file.readlines():
                 
-                if not cls.compare(word, target):
+                if not thash.compare(word):
                     continue
 
                 # cracked
