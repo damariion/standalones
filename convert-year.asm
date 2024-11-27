@@ -1,4 +1,4 @@
-; A1W1A1: "year to month & day", in assembly x32
+; A1W1A1: "year to month & day", in assembly x32, by Damarion
 ; Run on m86k processor or visit https://asm-editor.specy.app/
 
 org $1000
