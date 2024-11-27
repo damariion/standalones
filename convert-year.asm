@@ -1,5 +1,5 @@
-; A1W1A1, "year to month & day", in assembly x32 bit
-; run on m86k processor or visit https://asm-editor.specy.app/
+; A1W1A1: "year to month & day", in assembly x32
+; Run on m86k processor or visit https://asm-editor.specy.app/
 
 org $1000
 
@@ -193,16 +193,3 @@ clrseg_:
     rts
 
 EXIT:
-
-
-* ---METADATA--- do not write below here
-* {
-*     "version": 1,
-*     "description": "",
-*     "name": "cg-a1w1a1",
-*     "language": "M68K",
-*     "createdAt": 1732732840476,
-*     "updatedAt": 1732732858032,
-*     "testcases": [],
-*     "id": "oEMwMCu"
-* }
